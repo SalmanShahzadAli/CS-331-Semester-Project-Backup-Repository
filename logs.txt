@@ -1,0 +1,150 @@
+2025-11-02T12:42:22.086047 USER: Hello
+2025-11-02T12:42:22.086069 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:42:26.326247 USER: hello
+2025-11-02T12:42:26.326265 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:42:31.830736 USER: fever
+2025-11-02T12:42:31.830751 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:42:49.103412 USER: I have a fever
+2025-11-02T12:42:49.103426 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:47:52.069521 USER: hello
+2025-11-02T12:47:52.069546 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:47:58.096081 USER: how are you
+2025-11-02T12:47:58.096106 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:48:05.381620 USER: quiy
+2025-11-02T12:48:05.381640 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:49:54.181882 USER: hello
+2025-11-02T12:49:54.181903 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:50:10.615878 USER: & "C:/Program Files/Python313/python.exe" "c:/Users/DR/iCloudDrive/Giki University_/5th Semester_/CS331 Software Engineering_/Semester Project/chatbot.py"
+2025-11-02T12:50:10.615906 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T12:50:25.312384 USER: hello
+2025-11-02T12:50:25.312401 BOT: Hello! How can I assist you today?
+--------------------------------------------------
+2025-11-02T12:50:33.966799 USER: & "C:/Program Files/Python313/python.exe" "c:/Users/DR/iCloudDrive/Giki University_/5th Semester_/CS331 Software Engineering_/Semester Project/chatbot.py"
+2025-11-02T12:50:33.966822 BOT: Depending on your symptoms, common tests include CBC, X-ray, urine analysis. Tell me your symptoms and I can suggest likely tests.
+--------------------------------------------------
+2025-11-02T12:50:47.450290 USER: hello
+2025-11-02T12:50:47.450311 BOT: Hi there! I’m HealthMate, your AI assistant. How are you feeling today?
+--------------------------------------------------
+2025-11-02T12:50:53.397578 USER: how are you
+2025-11-02T12:50:53.397595 BOT: The hospital contact number is +92-XXX-XXXXXXX and the address is [Your Hospital Address]. Would you like directions or visiting hours?
+--------------------------------------------------
+2025-11-02T12:51:20.989738 USER: hello
+2025-11-02T12:51:20.989761 BOT: Hello! How can I assist you today?
+--------------------------------------------------
+2025-11-02T12:51:26.512184 USER: how are you
+2025-11-02T12:51:26.512199 BOT: The hospital contact number is +92-XXX-XXXXXXX and the address is [Your Hospital Address]. Would you like directions or visiting hours?
+--------------------------------------------------
+2025-11-02T12:52:52.394357 USER: hello
+2025-11-02T12:52:52.394375 BOT: Hi there! I’m HealthMate, your AI assistant. How are you feeling today?
+--------------------------------------------------
+2025-11-02T12:52:55.936452 USER: how are you
+2025-11-02T12:52:55.936478 BOT: Hey! How can I help you?
+--------------------------------------------------
+2025-11-02T12:53:03.723291 USER: hi
+2025-11-02T12:53:03.723310 BOT: Hi there! I’m HealthMate, your AI assistant. How are you feeling today?
+--------------------------------------------------
+2025-11-02T12:53:07.971061 USER: fever
+2025-11-02T12:53:07.971075 BOT: Thank you for the details. Based on that, I recommend consulting a general physician. If symptoms worsen, seek urgent care.
+--------------------------------------------------
+2025-11-02T12:53:20.215347 USER: my temperature is rising
+2025-11-02T12:53:20.215362 BOT: I'm sorry to hear that. How long have you had the fever and do you have any other symptoms?
+--------------------------------------------------
+2025-11-02T12:53:40.747064 USER: my body temperature is rising
+2025-11-02T12:53:40.747086 BOT: I'm sorry to hear that. How long have you had the fever and do you have any other symptoms?
+--------------------------------------------------
+2025-11-02T12:55:01.038052 USER: book apointment
+2025-11-02T12:55:01.038068 BOT: Sure — which department or specialty do you need (e.g., General Physician, ENT, Cardiology)?
+--------------------------------------------------
+2025-11-02T12:55:11.356327 USER: i want to see a doctor
+2025-11-02T12:55:11.356341 BOT: Sure — which department or specialty do you need (e.g., General Physician, ENT, Cardiology)?
+--------------------------------------------------
+2025-11-02T12:55:24.860714 USER: can you help me book a doctor visit
+2025-11-02T12:55:24.860730 BOT: Sure — which department or specialty do you need (e.g., General Physician, ENT, Cardiology)?
+--------------------------------------------------
+2025-11-02T13:00:13.479986 USER: hiya
+2025-11-02T13:00:13.479999 BOT: Depending on your symptoms, common tests include CBC, X-ray, urine analysis. Tell me your symptoms and I can suggest likely tests.
+--------------------------------------------------
+2025-11-02T13:00:21.419929 USER: hello
+2025-11-02T13:00:21.419949 BOT: Hi there! I’m HealthMate — how are you feeling?
+--------------------------------------------------
+2025-11-02T13:00:34.246496 USER: hi
+2025-11-02T13:00:34.246510 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T13:00:45.584837 USER: hi there
+2025-11-02T13:00:45.584852 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T13:02:46.950977 USER: hi
+2025-11-02T13:02:46.950997 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T13:02:53.396475 USER: hello
+2025-11-02T13:02:53.396488 BOT: Hello! How can I assist you today?
+--------------------------------------------------
+2025-11-02T13:02:57.122759 USER: how are you
+2025-11-02T13:02:57.122779 BOT: Emergency: 1122 | Main Line: +92-XXX-XXXXXXX | Email: info@yourhospital.com
+--------------------------------------------------
+2025-11-02T13:03:26.895437 USER: hello there
+2025-11-02T13:03:26.895470 BOT: Hello! Hope you’re having a good day.
+--------------------------------------------------
+2025-11-02T13:03:34.105963 USER: hello friend
+2025-11-02T13:03:34.105991 BOT: Hello! Hope you’re having a good day.
+--------------------------------------------------
+2025-11-02T13:03:40.587013 USER: hello there
+2025-11-02T13:03:40.587099 BOT: Hello! Hope you’re having a good day.
+--------------------------------------------------
+2025-11-02T13:03:52.103210 USER: hi
+2025-11-02T13:03:52.103225 BOT: I'm sorry — I didn't understand that. Could you rephrase or provide more details?
+--------------------------------------------------
+2025-11-02T13:06:05.968912 USER: hi
+2025-11-02T13:06:05.968932 BOT: Hey there! How’s your day going?
+--------------------------------------------------
+2025-11-02T13:07:54.683398 USER: hi
+2025-11-02T13:07:54.683412 BOT: Hey there! How’s your day going?
+--------------------------------------------------
+2025-11-02T13:07:58.522272 USER: hello
+2025-11-02T13:07:58.522286 BOT: Hello! How can I assist you today?
+--------------------------------------------------
+2025-11-02T13:08:12.021967 USER: good morning
+2025-11-02T13:08:12.021985 BOT: Take care! If you need anything else, come back anytime.
+--------------------------------------------------
+2025-11-02T13:08:21.822867 USER: morning
+2025-11-02T13:08:21.822880 BOT: Visiting hours are typically 9:00 AM to 5:00 PM on weekdays. For specific doctors, please provide the doctor's name or department.
+--------------------------------------------------
+2025-11-02T23:06:58.956230 USER: I need assistance regarding football
+2025-11-02T23:06:58.956251 BOT: You can collect reports from the lab or access them online via our patient portal.
+--------------------------------------------------
+2025-11-02T23:10:46.719595 USER: hello
+2025-11-02T23:10:46.719624 BOT: Hi there! I’m HealthMate — how are you feeling?
+--------------------------------------------------
+2025-11-02T23:11:03.388578 USER: hello
+2025-11-02T23:11:03.388632 BOT: Hello! Hope you’re having a good day.
+--------------------------------------------------
+2025-11-02T23:11:09.587889 USER: hello
+2025-11-02T23:11:09.587932 BOT: Hi there! I’m HealthMate — how are you feeling?
+--------------------------------------------------
+2025-11-02T23:11:12.323418 USER: hello
+2025-11-02T23:11:12.323475 BOT: Hi there! I’m HealthMate — how are you feeling?
+--------------------------------------------------
+2025-11-02T23:11:55.900893 USER: i have had a fever since the last 2 days.
+2025-11-02T23:11:55.900932 BOT: These could be signs of infection. Please see a doctor soon and stay hydrated.
+--------------------------------------------------
+2025-11-02T23:13:45.159643 USER: i have had a vicious case of diarhea and i want help regarding my stool
+2025-11-02T23:13:45.159681 BOT: These could be signs of infection. Please see a doctor soon and stay hydrated.
+--------------------------------------------------
+2025-11-25T12:02:12.243747 USER: hello
+2025-11-25T12:02:12.243758 BOT: Hello! Hope you’re having a good day.
+--------------------------------------------------
+2025-11-25T13:20:42.144892 USER: hello
+2025-11-25T13:20:42.144902 BOT: Hello! How can I assist you today?
+--------------------------------------------------
+2025-11-25T13:20:58.616805 USER: i have a fever.
+2025-11-25T13:20:58.616818 BOT: Thank you for the details. Based on that, I recommend consulting a general physician. If symptoms worsen, seek urgent care.
+--------------------------------------------------

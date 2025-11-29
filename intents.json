@@ -1,0 +1,437 @@
+{
+  "intents": [
+    {
+      "tag": "greeting_hello",
+      "patterns": [
+        "hello",
+        "hello there",
+        "hello friend",
+        "good to see you",
+        "hello again",
+        "hello healthmate",
+        "hey hello",
+        "hello my friend",
+        "oh hello",
+        "well hello",
+        "hello good day",
+        "hello doc"
+      ],
+      "responses": [
+        "Hello! How can I assist you today?",
+        "Hi there! I’m HealthMate — how are you feeling?",
+        "Hello! Hope you’re having a good day."
+      ]
+    },
+    {
+      "tag": "greeting_hi",
+      "patterns": [
+        "hi",
+        "hey",
+        "hiya",
+        "yo",
+        "hey there",
+        "hi there",
+        "hey buddy",
+        "hi friend",
+        "hey mate",
+        "hi again",
+        "hey how are you",
+        "hey healthmate"],
+      "responses": [
+        "Hey there! How’s your day going?",
+        "Hi! How can I help you?",
+        "Hey! What can I do for you today?"
+      ]
+    },
+    {
+      "tag": "greeting_morning",
+      "patterns": [
+        "good morning",
+        "morning",
+        "top of the morning",
+        "morning healthmate",
+        "good morning doctor",
+        "good morning assistant",
+        "morning there",
+        "hello good morning",
+        "a very good morning",
+        "have a good morning",
+        "morning buddy",
+        "morning friend"
+      ],
+      "responses": [
+        "Good morning! I hope you’re feeling great.",
+        "Morning! Ready to start your healthy day?",
+        "Good morning! How can I assist you?"
+      ]
+    },
+    {
+      "tag": "greeting_evening",
+      "patterns": [
+        "good evening",
+        "evening",
+        "pleasant evening",
+        "good evening healthmate",
+        "evening there",
+        "good evening doctor",
+        "good evening friend",
+        "hi good evening",
+        "hope you're having a good evening",
+        "good evening to you",
+        "evening buddy",
+        "evening friend"
+      ],
+      "responses": [
+        "Good evening! How’s your day been?",
+        "Evening! How can I help you relax and stay healthy?",
+        "Good evening! What brings you here today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "talk later",
+        "bye for now",
+        "gotta go",
+        "catch you later",
+        "see you soon",
+        "take care",
+        "later",
+        "i'm leaving",
+        "good night",
+        "good evening",
+        "farewell",
+        "until next time",
+        "signing off",
+        "have a good one",
+        "peace out",
+        "adios",
+        "ciao"
+      ],
+      "responses": [
+        "Take care! If you need anything else, come back anytime.",
+        "Goodbye! Wishing you good health.",
+        "See you soon! Stay well."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks",
+        "thank you",
+        "thx",
+        "thankyou",
+        "thanks a lot",
+        "thank you so much",
+        "appreciate it",
+        "thanks for help",
+        "thnx",
+        "thank u",
+        "grateful",
+        "thanks doc",
+        "much thanks",
+        "ty",
+        "thank you very much",
+        "thanks for the info",
+        "appreciate your help",
+        "thanks for answering",
+        "thank you kindly",
+        "thanks again"
+      ],
+      "responses": [
+        "You're welcome! Happy to help.",
+        "Anytime! Take care.",
+        "Glad I could assist. Stay well!",
+        "My pleasure! Feel free to ask more."
+      ]
+    },
+    {
+      "tag": "fever",
+      "patterns": [
+        "I have a fever",
+        "my temperature is high",
+        "I've been having a fever",
+        "fever for the past two days",
+        "body temperature 102 degrees",
+        "i feel hot and tired",
+        "temperature is rising",
+        "fever and chills"
+      ],
+      "responses": [
+        "I'm sorry to hear that. How long have you had the fever and do you have any other symptoms?",
+        "Fever can be serious. Any cough, sore throat, or body aches?"
+      ]
+    },
+    {
+      "tag": "cough",
+      "patterns": [
+        "I have a cough",
+        "dry cough",
+        "coughing a lot",
+        "sore throat and cough",
+        "my chest hurts when I cough",
+        "persistent cough issue",
+        "cough not improving"
+      ],
+      "responses": [
+        "A cough can have many causes. Do you have fever, sore throat, or shortness of breath?",
+        "Is it dry or productive (with phlegm)? Any wheezing?"
+      ]
+    },
+    {
+      "tag": "headache",
+      "patterns": [
+        "I have a headache",
+        "pain in my head",
+        "severe headache since morning",
+        "my head hurts badly",
+        "I get frequent migraines",
+        "headache and nausea",
+        "head pain on one side",
+        "throbbing headache",
+        "my head feels heavy",
+        "light sensitivity with headache"
+      ],
+      "responses": [
+        "Sorry to hear that. Is it a sharp pain or a dull ache? Any nausea or vision changes?",
+        "Any triggers like stress, lack of sleep, or dehydration?"
+      ]
+    },
+    {
+      "tag": "stomach_pain",
+      "patterns": [
+        "stomach ache",
+        "pain in my stomach",
+        "abdominal pain",
+        "stomach cramps",
+        "my belly hurts",
+        "I have a stomachache",
+        "tummy pain",
+        "gut pain",
+        "stomach hurting",
+        "hurts in the abdomen",
+        "cramping in stomach",
+        "sharp pain in stomach",
+        "dull ache in belly",
+        "stomach is sore",
+        "pain around navel",
+        "upper belly pain",
+        "lower stomach pain",
+        "stomach feels tight",
+        "burning in stomach",
+        "stabbing stomach pain"
+      ],
+      "responses": [
+        "Stomach pain can vary. Is it localized, sharp, or cramp-like? Any vomiting or diarrhea?",
+        "When did it start? Any relation to food, stress, or movement?"
+      ]
+    },
+    {
+      "tag": "appointment",
+      "patterns": [
+        "book appointment",
+        "I want to make a doctor appointment",
+        "how to schedule a visit",
+        "can I book an appointment",
+        "need to see a doctor",
+        "schedule checkup",
+        "appointment booking please",
+        "reserve a visit",
+        "book me with a general physician",
+        "how can I get a slot for tomorrow"
+      ],
+      "responses": [
+        "Sure — which department or specialty do you need (e.g., General Physician, ENT, Cardiology)?",
+        "Let me check availability. What date and time works for you?"
+      ]
+    },
+    {
+      "tag": "doctor_recommendation",
+      "patterns": [
+        "which doctor should I see",
+        "which specialist",
+        "who should I consult for chest pain",
+        "recommend a doctor",
+        "please suggest a doctor",
+        "i need to see a doctor"
+      ],
+      "responses": [
+        "Tell me your main symptom and I will suggest an appropriate specialist (e.g., General Physician, Cardiologist, ENT).",
+        "Based on your symptoms, I recommend seeing a [Specialist]."
+      ]
+    },
+    {
+      "tag": "emergency",
+      "patterns": [
+        "emergency",
+        "urgent",
+        "need help now",
+        "severe pain",
+        "call ambulance"
+      ],
+      "responses": [
+        "If this is an emergency (chest pain, severe bleeding, difficulty breathing), please call emergency services immediately.",
+        "Do not wait — go to the nearest ER or call 1122 (Pakistan) / 911 / 999."
+      ]
+    },
+    {
+      "tag": "medication_info",
+      "patterns": [
+        "what medicine should I take",
+        "what medication",
+        "suggest medicine for fever",
+        "prescribe"
+      ],
+      "responses": [
+        "I can't prescribe medicine. I can suggest seeing a doctor or advise on general care like rest and hydration. Please consult a licensed professional for prescriptions.",
+        "Over-the-counter options like paracetamol may help with fever, but always confirm with a doctor."
+      ]
+    },
+    {
+      "tag": "test_and_reports",
+      "patterns": [
+        "what tests do I need",
+        "blood tests",
+        "x-ray",
+        "what investigations are required",
+        "do I need a scan",
+        "ultrasound needed",
+        "ct scan or mri",
+        "lab tests",
+        "which blood work",
+        "cbc test",
+        "liver function test",
+        "kidney test",
+        "thyroid panel",
+        "urine test",
+        "stool test",
+        "ecg or ekg",
+        "chest xray",
+        "report ready",
+        "when will results come",
+        "how to get my reports",
+        "download lab results",
+        "test results online",
+        "report collection time"
+      ],
+      "responses": [
+        "Depending on your symptoms, common tests include CBC, X-ray, urine analysis. Tell me your symptoms and I can suggest likely tests.",
+        "You can collect reports from the lab or access them online via our patient portal."
+      ]
+    },
+    {
+      "tag": "contact_info",
+      "patterns": [
+        "hospital contact",
+        "phone number",
+        "address",
+        "what is the contact info",
+        "how to reach you",
+        "clinic phone",
+        "emergency contact",
+        "main line",
+        "reception number",
+        "location of hospital",
+        "where are you located",
+        "hospital address",
+        "contact details",
+        "call the clinic",
+        "email address",
+        "fax number",
+        "customer service number",
+        "helpline",
+        "support contact",
+        "get in touch"
+      ],
+      "responses": [
+        "The hospital contact number is +92-XXX-XXXXXXX and the address is [Your Hospital Address]. Would you like directions or visiting hours?",
+        "Emergency: 1122 | Main Line: +92-XXX-XXXXXXX | Email: info@yourhospital.com"
+      ]
+    },
+    {
+      "tag": "visiting_hours",
+      "patterns": [
+        "visiting hours",
+        "when can I visit",
+        "doctor timings",
+        "opening hours",
+        "clinic hours",
+        "what time do you open",
+        "what time do you close",
+        "are you open today",
+        "weekend hours",
+        "saturday clinic",
+        "evening appointments",
+        "morning walk-in",
+        "appointment times",
+        "office hours",
+        "when is the doctor available",
+        "clinic open on sunday",
+        "emergency hours",
+        "after hours care",
+        "open late",
+        "early morning slots"
+      ],
+      "responses": [
+        "Visiting hours are typically 9:00 AM to 5:00 PM on weekdays. For specific doctors, please provide the doctor's name or department.",
+        "We’re open Mon–Fri 8:30 AM–6:00 PM | Sat 9:00 AM–1:00 PM | Emergency 24/7."
+      ]
+    },
+    {
+      "tag": "insurance",
+      "patterns": [
+        "do you accept insurance",
+        "insurance covered",
+        "payment methods",
+        "billing",
+        "does insurance pay for this",
+        "what insurance do you take",
+        "is my plan accepted",
+        "do you bill insurance",
+        "covered by insurance",
+        "accept my insurance",
+        "insurance accepted here",
+        "cash pay or insurance",
+        "cost with insurance",
+        "deductible or copay",
+        "in-network or out-of-network",
+        "insurance verification",
+        "do I need pre-authorization",
+        "insurance card needed",
+        "self-pay options",
+        "payment plans available"
+      ],
+      "responses": [
+        "We accept major insurance providers and cash/card payments. Which insurance do you have? I can check coverage details.",
+        "We’re in-network with most plans. Share your insurance name and ID to verify."
+      ]
+    },
+    {
+      "tag": "symptom_followup",
+      "patterns": [
+        "I have fever and cough",
+        "fever for two days and sore throat",
+        "high temperature and headache",
+        "I’ve had chills and body aches",
+        "cough with fever for three days",
+        "sore throat and swollen glands",
+        "fever, runny nose, and fatigue",
+        "headache with high fever",
+        "fever comes and goes with sweating",
+        "coughing up phlegm and fever",
+        "throat hurts and I have a temperature",
+        "fever at night and joint pain",
+        "headache, nausea, and fever",
+        "I feel hot and have a dry cough",
+        "fever and stomach pain together"
+      ],
+      "responses": [
+        "Thank you for the details. Based on that, I recommend consulting a general physician. If symptoms worsen, seek urgent care.",
+        "These could be signs of infection. Please see a doctor soon and stay hydrated."
+      ]
+    }
+  ]
+}
