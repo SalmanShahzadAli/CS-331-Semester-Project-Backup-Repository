@@ -47,7 +47,7 @@ export default function MentalHealthBot({ onBack }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': process.env.REACT_APP_MENTAL_HEALTH_API_KEY
+          'Authorization': "Bearer Your Api Key"
         },
         body: JSON.stringify({
           model: 'llama-3.1-8b-instant',
