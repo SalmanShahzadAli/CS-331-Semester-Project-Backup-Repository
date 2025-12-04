@@ -27,8 +27,8 @@ export default function MentalHealthBot({ onBack }) {
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
-
   const handleSend = async () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
     if (!input.trim() || isLoading) return;
 
     const userMessage = { 
@@ -41,13 +41,12 @@ export default function MentalHealthBot({ onBack }) {
     const currentInput = input;
     setInput('');
     setIsLoading(true);
-
     try {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': "Bearer Your Api Key"
+          'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
           model: 'llama-3.1-8b-instant',
@@ -327,11 +326,11 @@ export default function MentalHealthBot({ onBack }) {
     borderTop: isDarkMode ? '1px solid rgba(255,255,255,0.1)' : '1px solid #e9ecef',
   };
 
-  const inputLabelStyle = {
-    fontSize: '1.5rem',
-    fontWeight: 600,
-    color: isDarkMode ? '#fff' : '#2d3436',
-  };
+  // const inputLabelStyle = {
+  //   fontSize: '1.5rem',
+  //   fontWeight: 600,
+  //   color: isDarkMode ? '#fff' : '#2d3436',
+  // };
 
   const inputWrapperStyle = {
     width: '100%',

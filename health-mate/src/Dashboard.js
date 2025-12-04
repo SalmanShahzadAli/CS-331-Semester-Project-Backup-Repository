@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Heart, MessageCircle, Activity, Brain, Stethoscope, LogOut, User, Moon, Sun, Sparkles } from 'lucide-react';
 import MentalHealthBot from './chatbots/MentalHealthBot';
-
+import MedicalHealth from './chatbots/MedicalHealth';
+import GeneralHealth from './chatbots/GeneralHealth';
+import HealthMateFooter from './compoenets/footer'
 export default function Dashboard() {
   const [activeBot, setActiveBot] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -18,7 +20,14 @@ export default function Dashboard() {
   if (activeBot === 'mental-health') {
     return <MentalHealthBot onBack={() => setActiveBot(null)} />;
   }
-
+  // If General Health Chatbot is active, show it
+  if (activeBot === 'general-health') {
+    return <MedicalHealth onBack={() => setActiveBot(null)} />;
+  }
+  // If Fitness Chatbot is active, show it
+  if (activeBot === 'fitness') {
+    return <GeneralHealth onBack={() => setActiveBot(null)} />;
+  }
   const chatbots = [
     {
       id: 1,
@@ -597,64 +606,7 @@ export default function Dashboard() {
       </div>
 
       {/* Footer */}
-      <footer style={footerStyle}>
-        <div style={footerContentStyle}>
-          <div style={footerTopStyle}>
-            <div style={footerBrandStyle}>
-              <div style={footerLogoStyle}>
-                <Heart style={{ width: '28px', height: '28px', color: '#667eea', fill: '#667eea' }} />
-                <span style={footerBrandTextStyle}>Health Mate</span>
-              </div>
-              <p style={footerTaglineStyle}>Your AI-powered companion for better health and wellness</p>
-            </div>
-
-            <div style={footerLinksContainerStyle}>
-              <div style={footerColumnStyle}>
-                <h4 style={footerColumnTitleStyle}>Product</h4>
-                <a style={footerLinkStyle}>Features</a>
-                <a style={footerLinkStyle}>Chatbots</a>
-                <a style={footerLinkStyle}>Pricing</a>
-                <a style={footerLinkStyle}>FAQ</a>
-              </div>
-
-              <div style={footerColumnStyle}>
-                <h4 style={footerColumnTitleStyle}>Company</h4>
-                <a style={footerLinkStyle}>About Us</a>
-                <a style={footerLinkStyle}>Careers</a>
-                <a style={footerLinkStyle}>Contact</a>
-                <a style={footerLinkStyle}>Blog</a>
-              </div>
-
-              <div style={footerColumnStyle}>
-                <h4 style={footerColumnTitleStyle}>Legal</h4>
-                <a style={footerLinkStyle}>Privacy Policy</a>
-                <a style={footerLinkStyle}>Terms of Service</a>
-                <a style={footerLinkStyle}>Cookie Policy</a>
-                <a style={footerLinkStyle}>Disclaimer</a>
-              </div>
-
-              <div style={footerColumnStyle}>
-                <h4 style={footerColumnTitleStyle}>Connect</h4>
-                <a style={footerLinkStyle}>Twitter</a>
-                <a style={footerLinkStyle}>LinkedIn</a>
-                <a style={footerLinkStyle}>GitHub</a>
-                <a style={footerLinkStyle}>Discord</a>
-              </div>
-            </div>
-          </div>
-
-          <div style={footerBottomStyle}>
-            <p style={footerCopyrightStyle}>
-              © 2025 Health Mate. All rights reserved.
-            </p>
-            <div style={footerBadgesStyle}>
-              <span style={badgeStyle}>🔒 Secure</span>
-              <span style={badgeStyle}>✨ AI-Powered</span>
-              <span style={badgeStyle}>💜 Made with Care</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <HealthMateFooter />
     </div>
   );
 }

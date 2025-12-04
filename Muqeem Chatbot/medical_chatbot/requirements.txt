@@ -1,0 +1,17 @@
+# SIMPLIFIED VERSION - No LangChain, No RAG
+# Only essential packages!
+
+# Database
+psycopg2-binary>=2.9.9
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# HTTP requests (for Grok API)
+requests>=2.31.0
+
+# Data handling
+pandas>=2.1.4
+numpy>=1.26.2
+
+# That's it! No AI frameworks needed.
