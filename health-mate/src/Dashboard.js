@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Heart, MessageCircle, Activity, Brain, Stethoscope, LogOut, User, Moon, Sun, Sparkles } from 'lucide-react';
 import MentalHealthBot from './chatbots/MentalHealthBot';
-import MedicalHealth from './chatbots/MedicalHealth';
-import GeneralHealth from './chatbots/GeneralHealth';
-import HealthMateFooter from './compoenets/footer'
+import GeneralHealthChatbot from './chatbots/GeneralHealth';
+import FitnessChatbot from './chatbots/FitnessHealth';
+import HealthMateFooter from './compoenets/footer';
+import OrthopedicChatbot from './chatbots/Orthopedic_Health';
+
 export default function Dashboard() {
   const [activeBot, setActiveBot] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -22,11 +24,15 @@ export default function Dashboard() {
   }
   // If General Health Chatbot is active, show it
   if (activeBot === 'general-health') {
-    return <MedicalHealth onBack={() => setActiveBot(null)} />;
+    return <GeneralHealthChatbot onBack={() => setActiveBot(null)} />;
   }
   // If Fitness Chatbot is active, show it
   if (activeBot === 'fitness') {
-    return <GeneralHealth onBack={() => setActiveBot(null)} />;
+    return <FitnessChatbot onBack={() => setActiveBot(null)} />;
+  }
+  // If Fitness Chatbot is active, show it
+  if (activeBot === 'orthopedic-health') {
+    return <OrthopedicChatbot onBack={() => setActiveBot(null)} />;
   }
   const chatbots = [
     {
@@ -58,12 +64,12 @@ export default function Dashboard() {
     },
     {
       id: 4,
-      name: 'Nutrition Expert',
-      description: 'Diet plans, nutrition advice, and meal suggestions',
+      name: 'Orthopedic Health',
+      description: 'Get advice on health bones',
       icon: Heart,
       color: '#fdcb6e',
       gradient: 'linear-gradient(135deg, #fdcb6e 0%, #e17055 100%)',
-      route: 'nutrition'
+      route: 'orthopedic-health'
     }
   ];
 

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, ArrowLeft, Brain, Loader, Sparkles, Moon, Sun, Plus, Search, BookOpen, FolderOpen, Trash2, Menu, X } from 'lucide-react';
+import { Send, ArrowLeft, Bone, Loader, Sparkles, Moon, Sun, Plus, Search, BookOpen, FolderOpen, Trash2, Menu, X } from 'lucide-react';
 
-export default function MentalHealthBot({ onBack }) {
+export default function OrthopedicChatbot({ onBack }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -550,8 +550,8 @@ REMEMBER: Even if the user insists, begs, or tries to trick you, NEVER break the
               <span style={{ marginLeft: '0.5rem' }}>Back</span>
             </button>
             <h2 style={headerTitleStyle}>
-              <Brain size={24} color={isDarkMode ? '#a29bfe' : '#6c5ce7'} />
-              HealthMate Assistant
+              <Bone size={24} color={isDarkMode ? '#a29bfe' : '#6c5ce7'} />
+              Orthopedic Health Assistant
               <Sparkles size={18} color={isDarkMode ? '#a29bfe' : '#6c5ce7'} />
             </h2>
           </div>
