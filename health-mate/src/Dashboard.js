@@ -3,7 +3,7 @@ import { Heart, MessageCircle, Activity, Brain, Stethoscope, LogOut, User, Moon,
 import MentalHealthBot from './chatbots/MentalHealthBot';
 import GeneralHealthChatbot from './chatbots/GeneralHealth';
 import FitnessChatbot from './chatbots/FitnessHealth';
-import HealthMateFooter from './compoenets/footer';
+import HealthMateFooter from './components/footer';
 import OrthopedicChatbot from './chatbots/Orthopedic_Health';
 
 export default function Dashboard() {
