@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Heart, Twitter, Linkedin, Github, MessageCircle, X, Activity, Brain, Stethoscope, Sparkles, Check, Mail, MapPin, Phone } from 'lucide-react';
-
+import PaymentGateway from './PaymentGateway';
 export default function HealthMateFooter() {
   const [activeModal, setActiveModal] = useState(null);
-
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [showPaymentGateway, setShowPaymentGateway] = useState(false);
   const openModal = (modalName) => {
     setActiveModal(modalName);
     document.body.style.overflow = 'hidden';
@@ -91,6 +92,7 @@ export default function HealthMateFooter() {
   ];
 
   const ModalContent = () => {
+    console.log('ModalContent rendering, activeModal:', activeModal);
     const modalStyle = {
       position: 'fixed',
       top: 0,
@@ -136,7 +138,7 @@ export default function HealthMateFooter() {
       padding: '2rem'
     };
 
-    switch(activeModal) {
+    switch (activeModal) {
       case 'features':
         return (
           <div style={modalStyle} onClick={closeModal}>
@@ -157,14 +159,14 @@ export default function HealthMateFooter() {
                       padding: '1.5rem',
                       transition: 'all 0.3s'
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.borderColor = '#667eea';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    }}>
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-5px)';
+                        e.currentTarget.style.borderColor = '#667eea';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                      }}>
                       <div style={{ color: '#667eea', marginBottom: '0.75rem' }}>
                         <Check size={24} />
                       </div>
@@ -202,8 +204,8 @@ export default function HealthMateFooter() {
                         gap: '1.5rem',
                         transition: 'all 0.3s'
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                      onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'}>
+                        onMouseEnter={(e) => e.currentTarget.style.borderColor = '#667eea'}
+                        onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'}>
                         <div style={{ color: '#667eea', flexShrink: 0 }}>
                           <Icon size={40} />
                         </div>
@@ -256,8 +258,8 @@ export default function HealthMateFooter() {
                       position: 'relative',
                       transition: 'all 0.3s'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
                       {plan.popular && (
                         <div style={{
                           position: 'absolute',
@@ -287,19 +289,25 @@ export default function HealthMateFooter() {
                           </li>
                         ))}
                       </ul>
-                      <button style={{
-                        width: '100%',
-                        padding: '0.875rem',
-                        background: plan.popular ? '#fff' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                        color: plan.popular ? '#667eea' : '#fff',
-                        border: 'none',
-                        borderRadius: '0.75rem',
-                        fontWeight: 'bold',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                      onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                      <button
+                        onClick={() => {
+                          setSelectedPlan(plan);
+                          setShowPaymentGateway(true);
+                          closeModal(); // Close pricing modal
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '0.875rem',
+                          background: plan.popular ? '#fff' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                          color: plan.popular ? '#667eea' : '#fff',
+                          border: 'none',
+                          borderRadius: '0.75rem',
+                          fontWeight: 'bold',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                         Choose Plan
                       </button>
                     </div>
@@ -309,7 +317,6 @@ export default function HealthMateFooter() {
             </div>
           </div>
         );
-
       case 'faq':
         return (
           <div style={modalStyle} onClick={closeModal}>
@@ -330,8 +337,8 @@ export default function HealthMateFooter() {
                       padding: '1.5rem',
                       transition: 'all 0.3s'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.borderColor = '#667eea'}
-                    onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'}>
+                      onMouseEnter={(e) => e.currentTarget.style.borderColor = '#667eea'}
+                      onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'}>
                       <h3 style={{ color: '#667eea', marginBottom: '0.75rem', fontSize: '1.1rem' }}>{faq.q}</h3>
                       <p style={{ color: 'rgba(255, 255, 255, 0.7)', margin: 0, lineHeight: '1.6' }}>{faq.a}</p>
                     </div>
@@ -487,8 +494,8 @@ export default function HealthMateFooter() {
                     cursor: 'pointer',
                     transition: 'all 0.3s'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                     Send Message
                   </button>
                 </form>
@@ -555,7 +562,7 @@ export default function HealthMateFooter() {
           }
         `}
       </style>
-      
+
       <footer style={{
         background: 'linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%)',
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
@@ -735,6 +742,12 @@ export default function HealthMateFooter() {
 
       {/* Render Modal */}
       {activeModal && <ModalContent />}
+      {showPaymentGateway && selectedPlan && (
+        <PaymentGateway
+          plan={selectedPlan}
+          onClose={() => setShowPaymentGateway(false)}
+        />
+      )}
     </>
   );
 }

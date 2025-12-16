@@ -148,3 +148,15 @@
 2025-11-25T13:20:58.616805 USER: i have a fever.
 2025-11-25T13:20:58.616818 BOT: Thank you for the details. Based on that, I recommend consulting a general physician. If symptoms worsen, seek urgent care.
 --------------------------------------------------
+2025-12-14T21:43:41.501396 USER: hello
+2025-12-14T21:43:41.501406 BOT: Hello! Hope you’re having a good day.
+--------------------------------------------------
+2025-12-14T21:43:53.618115 USER: pain in brain
+2025-12-14T21:43:53.618139 BOT: When did it start? Any relation to food, stress, or movement?
+--------------------------------------------------
+2025-12-15T11:49:36.215432 USER: hi
+2025-12-15T11:49:36.215446 BOT: Hey! What can I do for you today?
+--------------------------------------------------
+2025-12-15T11:49:49.394621 USER: who is the pm ??
+2025-12-15T11:49:49.394635 BOT: The hospital contact number is +92-XXX-XXXXXXX and the address is [Your Hospital Address]. Would you like directions or visiting hours?
+--------------------------------------------------
