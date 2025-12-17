@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, ArrowLeft, Brain, Loader, Sparkles, Moon, Sun, Plus, Search, BookOpen, FolderOpen, Trash2, Menu, X } from 'lucide-react';
+import { Send, ArrowLeft, Brain, Loader, Sparkles, Moon, Sun, Plus, Search, BookOpen, FolderOpen, Trash2, Menu, X, FileText, Paperclip } from 'lucide-react';
 import ChatHistorySidebar from '../components/ChatHistorySidebar';
 import { chatApi } from '../utils/chatApi';
 export default function MentalHealthBot({ onBack }) {
@@ -10,8 +10,10 @@ export default function MentalHealthBot({ onBack }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [chatHistory, setChatHistory] = useState([]);
   const [currentChatId, setCurrentChatId] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const fileInputRef = useRef(null);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -65,15 +67,33 @@ export default function MentalHealthBot({ onBack }) {
     const userMessage = {
       text: input,
       sender: 'user',
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      file: selectedFile ? {
+        name: selectedFile.name,
+        size: selectedFile.size,
+        type: selectedFile.type
+      } : null
     };
 
     setMessages(prev => [...prev, userMessage]);
     const currentInput = input;
+    const currentFile = selectedFile;
     setInput('');
+    setSelectedFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
     setIsLoading(true);
 
     try {
+      let fileContent = '';
+      if (currentFile) {
+        try {
+          fileContent = await readFileContent(currentFile);
+        } catch (err) {
+          console.error('Error reading file:', err);
+          fileContent = `[Attached file: ${currentFile.name}]`;
+        }
+      }
+
       // Build conversation history for context
       const conversationHistory = messages.map(msg => ({
         role: msg.sender === 'user' ? 'user' : 'assistant',
@@ -129,7 +149,7 @@ REMEMBER: Be compassionate, non-judgmental, and empowering. Encourage profession
             ...conversationHistory,
             {
               role: 'user',
-              content: currentInput
+              content: fileContent ? `${currentInput}\n\n--- FILE CONTENT ---\n${fileContent}\n--- END FILE CONTENT ---` : currentInput
             }
           ],
           temperature: 0.3,
@@ -175,6 +195,52 @@ REMEMBER: Be compassionate, non-judgmental, and empowering. Encourage profession
     }
     setMessages([]);
     setCurrentChatId(null);
+  };
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File size must be less than 5MB');
+        return;
+      }
+      setSelectedFile(file);
+    }
+  };
+
+  const handleRemoveFile = () => {
+    setSelectedFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const readFileContent = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const content = e.target.result;
+          // For text files, return as string; for binary, return base64
+          if (file.type.startsWith('text/') || file.type === 'application/json') {
+            resolve(content);
+          } else {
+            // For binary files like PDF, convert to base64
+            resolve(`[Binary file: ${file.name} (${(file.size / 1024).toFixed(2)}KB)]\n${content.split(',')[1] ? content.split(',')[1].substring(0, 500) : 'Binary content'}`);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      };
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      
+      if (file.type.startsWith('text/') || file.type === 'application/json') {
+        reader.readAsText(file);
+      } else {
+        reader.readAsDataURL(file);
+      }
+    });
   };
 
   const handleSelectChat = async (chatId) => {
@@ -404,9 +470,11 @@ REMEMBER: Be compassionate, non-judgmental, and empowering. Encourage profession
       : (isDarkMode ? '#2d3436' : '#f8f9fa'),
     color: sender === 'user' ? 'white' : (isDarkMode ? '#fff' : '#2d3436'),
     boxShadow: isDarkMode ? '0 4px 12px rgba(0,0,0,0.3)' : '0 2px 8px rgba(0,0,0,0.05)',
-    lineHeight: '1.5',
+    lineHeight: '1.6',
     fontSize: '0.95rem',
     wordWrap: 'break-word',
+    whiteSpace: 'pre-wrap',
+    overflowWrap: 'break-word',
   });
 
   const timestampStyle = {
@@ -580,7 +648,29 @@ REMEMBER: Be compassionate, non-judgmental, and empowering. Encourage profession
               {messages.map((msg, index) => (
                 <div key={index} style={messageWrapperStyle(msg.sender)}>
                   <div style={messageStyle(msg.sender)}>
-                    {msg.text}
+                    {msg.text
+                      .split('\n')
+                      .map((line, i) => (
+                        <div key={i} style={{ marginBottom: i < msg.text.split('\n').length - 1 ? '0.5rem' : '0' }}>
+                          {line.trim() || '\u00A0'}
+                        </div>
+                      ))}
+                    {msg.file && (
+                      <div style={{
+                        marginTop: '0.5rem',
+                        padding: '0.5rem',
+                        backgroundColor: isDarkMode ? 'rgba(162, 155, 254, 0.1)' : 'rgba(108, 92, 231, 0.1)',
+                        borderRadius: '0.25rem',
+                        fontSize: '0.85rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        color: isDarkMode ? '#a29bfe' : '#6c5ce7'
+                      }}>
+                        <FileText size={14} />
+                        <span>{msg.file.name}</span>
+                      </div>
+                    )}
                   </div>
                   <div style={timestampStyle}>{msg.timestamp}</div>
                 </div>
@@ -603,7 +693,52 @@ REMEMBER: Be compassionate, non-judgmental, and empowering. Encourage profession
 
         {/* Input Area */}
         <div style={inputContainerStyle}>
+          {/* File selected indicator */}
+          {selectedFile && (
+            <div style={{
+              padding: '0.75rem 1rem',
+              backgroundColor: isDarkMode ? 'rgba(162, 155, 254, 0.2)' : '#f0f0f0',
+              borderRadius: '0.5rem',
+              marginBottom: '0.75rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              fontSize: '0.9rem',
+              color: isDarkMode ? '#a29bfe' : '#6c5ce7'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <FileText size={16} />
+                <span>{selectedFile.name}</span>
+              </div>
+              <button
+                onClick={handleRemoveFile}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: isDarkMode ? '#a29bfe' : '#6c5ce7',
+                  padding: '0.25rem',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+                onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+              >
+                <X size={16} />
+              </button>
+            </div>
+          )}
+          
           <div style={inputWrapperStyle}>
+            {/* Hidden file input */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              onChange={handleFileSelect}
+              style={{ display: 'none' }}
+              accept="image/*,.pdf,.doc,.docx,.txt"
+            />
+            
             <input
               ref={inputRef}
               type="text"
@@ -617,11 +752,19 @@ REMEMBER: Be compassionate, non-judgmental, and empowering. Encourage profession
               disabled={isLoading}
             />
             <button
+              onClick={() => fileInputRef.current?.click()}
               style={plusButtonStyle}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              title="Attach file"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.1)';
+                e.currentTarget.style.backgroundColor = isDarkMode ? 'rgba(162, 155, 254, 0.2)' : 'rgba(108, 92, 231, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
             >
-              <Plus size={20} />
+              <Paperclip size={20} />
             </button>
             <button
               onClick={handleSend}

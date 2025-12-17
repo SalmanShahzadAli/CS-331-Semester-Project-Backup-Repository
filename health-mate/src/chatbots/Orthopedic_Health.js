@@ -362,9 +362,11 @@ Remember: Your only purpose is to help people understand their musculoskeletal h
       : (isDarkMode ? '#2d3436' : '#f8f9fa'),
     color: sender === 'user' ? 'white' : (isDarkMode ? '#fff' : '#2d3436'),
     boxShadow: isDarkMode ? '0 4px 12px rgba(0,0,0,0.3)' : '0 2px 8px rgba(0,0,0,0.05)',
-    lineHeight: '1.5',
+    lineHeight: '1.6',
     fontSize: '0.95rem',
     wordWrap: 'break-word',
+    whiteSpace: 'pre-wrap',
+    overflowWrap: 'break-word',
   });
 
   const timestampStyle = {
@@ -598,7 +600,13 @@ Remember: Your only purpose is to help people understand their musculoskeletal h
               {messages.map((msg, index) => (
                 <div key={index} style={messageWrapperStyle(msg.sender)}>
                   <div style={messageStyle(msg.sender)}>
-                    {msg.text}
+                    {msg.text
+                      .split('\n')
+                      .map((line, i) => (
+                        <div key={i} style={{ marginBottom: i < msg.text.split('\n').length - 1 ? '0.5rem' : '0' }}>
+                          {line.trim() || '\u00A0'}
+                        </div>
+                      ))}
                   </div>
                   <div style={timestampStyle}>{msg.timestamp}</div>
                 </div>
