@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import { Heart, MessageCircle, Activity, Brain, Stethoscope, LogOut, User, Moon, Sun, Sparkles } from 'lucide-react';
+import { Heart, MessageCircle, Activity, Brain, Stethoscope, LogOut, User, Moon, Sun, Sparkles, Settings, FileText } from 'lucide-react';
 import MentalHealthBot from './chatbots/MentalHealthBot';
 import GeneralHealthChatbot from './chatbots/GeneralHealth';
 import FitnessChatbot from './chatbots/FitnessHealth';
 import HealthMateFooter from './components/footer';
 import OrthopedicChatbot from './chatbots/Orthopedic_Health';
+import PDFAnalyzer from './chatbots/PDFAnalyzer';
+import AdminPanel from './components/AdminPanel';
 
 export default function Dashboard() {
   const [activeBot, setActiveBot] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
   
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
@@ -30,9 +33,13 @@ export default function Dashboard() {
   if (activeBot === 'fitness') {
     return <FitnessChatbot onBack={() => setActiveBot(null)} />;
   }
-  // If Fitness Chatbot is active, show it
+  // If Orthopedic Chatbot is active, show it
   if (activeBot === 'orthopedic-health') {
     return <OrthopedicChatbot onBack={() => setActiveBot(null)} />;
+  }
+  // If PDF Analyzer is active, show it
+  if (activeBot === 'pdf-analyzer') {
+    return <PDFAnalyzer onBack={() => setActiveBot(null)} />;
   }
   const chatbots = [
     {
@@ -70,6 +77,15 @@ export default function Dashboard() {
       color: '#fdcb6e',
       gradient: 'linear-gradient(135deg, #fdcb6e 0%, #e17055 100%)',
       route: 'orthopedic-health'
+    },
+    {
+      id: 5,
+      name: 'PDF Analyzer',
+      description: 'Upload and analyze PDF documents',
+      icon: FileText,
+      color: '#00cec9',
+      gradient: 'linear-gradient(135deg, #00cec9 0%, #0984e3 100%)',
+      route: 'pdf-analyzer'
     }
   ];
 
@@ -140,6 +156,21 @@ export default function Dashboard() {
     cursor: 'pointer',
     color: isDarkMode ? '#ffffff' : '#2d3436',
     transition: 'all 0.3s',
+  };
+
+  const adminButtonStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    color: 'white',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '2rem',
+    border: 'none',
+    fontWeight: 600,
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    boxShadow: '0 4px 15px rgba(17, 153, 142, 0.3)',
   };
 
   const logoutButtonStyle = {
@@ -479,6 +510,21 @@ export default function Dashboard() {
             <span>{user.name || 'User'}</span>
           </div>
           <button 
+            style={adminButtonStyle}
+            onClick={() => setShowAdminPanel(!showAdminPanel)}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(17, 153, 142, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 15px rgba(17, 153, 142, 0.3)';
+            }}
+          >
+            <Settings size={18} />
+            Admin
+          </button>
+          <button 
             style={themeToggleStyle}
             onClick={() => setIsDarkMode(!isDarkMode)}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
@@ -613,6 +659,15 @@ export default function Dashboard() {
 
       {/* Footer */}
       <HealthMateFooter />
+
+      {/* Admin Panel Modal */}
+      {showAdminPanel && (
+        <AdminPanel
+          isDarkMode={isDarkMode}
+          onClose={() => setShowAdminPanel(false)}
+          user={user}
+        />
+      )}
     </div>
   );
 }
